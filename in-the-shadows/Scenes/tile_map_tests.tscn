@@ -1,0 +1,9 @@
+[gd_scene format=4 uid="uid://b5ttulk041dui"]
+
+[ext_resource type="TileSet" uid="uid://noegord7c151" path="res://Assets/TileSets/Floors.tres" id="1_btrgx"]
+
+[node name="TileMap Tests" type="Node2D" unique_id=617228738]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2091176904]
+tile_map_data = PackedByteArray("AAAAAAAAAAABAAEAAAABAAAAAAACAAEAAAACAAAAAAACAAEAAAACAAEAAAACAAQAAAABAAEAAAACAAQAAAAAAAEAAAABAAQAAAADAAEAAAADAAQAAAAEAAEAAAAEAAQAAAAEAAAAAAAEAAEAAAADAAAAAAACAAEAAAA=")
+tile_set = ExtResource("1_btrgx")
