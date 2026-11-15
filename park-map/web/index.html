@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nature Exploration · Mount Pleasant</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>/* APP_STYLES */</style>
+</head>
+<body>
+<header><span>Welcome to Nature Exploration!</span><span class="brand">PARK EXPLORER</span></header>
+<main>
+<section class="explorer" aria-label="Park map">
+  <div class="heading">
+    <div id="eyebrow" class="eyebrow">FIND YOUR NEXT WILD PLACE</div>
+      <button id="back" class="back light" hidden>← All parks</button>
+    <div class="title-row"><h1 id="title">Explore the wild.</h1>
+      <span id="region" class="region">Mount Pleasant, Michigan</span>
+    </div>
+    <p id="subtitle">Select a park on the map to meet its wildlife.</p>
+  </div>
+  <div class="map-wrap">
+    <div id="map" aria-label="Interactive map of parks around Mount Pleasant"></div>
+    <div id="map-filter" class="map-filter" hidden>
+      <button id="clear-taxon"></button>
+    </div>
+    <div class="legend">
+      <div id="legend-main">● Parks · select to explore</div>
+      <small id="legend-note">Park boundaries from OpenStreetMap</small>
+    </div>
+  </div>
+  <div class="source-line" id="source-line"></div>
+</section>
+<aside id="sidebar" aria-label="Park and observation details">
+  <div class="welcome"><p>Select a park to see its available wildlife.</p>
+    <label for="park-picker">Or choose a park</label>
+    <select id="park-picker">
+      <option value="">Select a park…</option>
+    </select>
+    <small>Animals, plants, fungi and more, observed by the iNaturalist community.</small>
+  </div>
+</aside>
+</main>
+<script id="park-data" type="application/json">/* APP_DATA */</script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>/* APP_SCRIPT */</script>
+</body></html>
