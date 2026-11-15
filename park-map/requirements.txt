@@ -2,4 +2,4 @@ osmnx>=2.0,<3
 numpy>=1.26
 shapely>=2.1
 pyproj>=3.6
-requests>=2.31
+pyinaturalist>=0.21.1,<1

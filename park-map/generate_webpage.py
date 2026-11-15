@@ -1,10 +1,12 @@
-"""Run with .venv/bin/python OSMx.py; open parks.html when complete."""
+"""WRITTEN BY CHATGPT CODEX"""
+"""Run with .venv/bin/python generate_webpage.py; open parks.html when complete."""
 import argparse
 import base64
 import json
 from pathlib import Path
 from park_data import build_dataset
 
+#store the root path for the project
 ROOT = Path(__file__).resolve().parent
 
 

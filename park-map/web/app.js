@@ -18,7 +18,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 const parkLayer = L.featureGroup().addTo(map);
 const sightingLayer = L.layerGroup().addTo(map);
 let radiusLayer;
-$('source-line').textContent = `${data.parks.length} parks within 10 km · ${fmt(data.total_observations)} public observations searched within 12 km · Built ${new Date(data.generated_at).toLocaleDateString()}`;
+$('source-line').textContent = `${data.parks.length} parks within 10 km · ${fmt(data.total_observations)} unique observations · newest ${data.observations_per_park ?? 200} per park · Built ${new Date(data.generated_at).toLocaleDateString()}`;
 
 function button(text,handler,className='back') {
   const el=document.createElement('button');el.textContent=text;el.className=className;el.addEventListener('click',handler);return el;
@@ -90,7 +90,7 @@ function showTaxa() {
   currentTaxon=null;selectedObservation=null;visibleCount=60;
   updateMap();
   const p=currentPark;
-  $('sidebar').innerHTML=`<div id="side-back"></div><div class="eyebrow">LOCAL PARK</div><h2>${escapeHtml(p.name)}</h2><p class="muted">Mount Pleasant area, Michigan</p><hr class="divider"><h3>Wildlife around this park</h3><p class="muted">${fmt(groups.length)} taxa · ${fmt(p.observations.length)} observations</p><input id="taxon-search" class="search" type="search" placeholder="Search animals, plants, fungi…" aria-label="Search taxa"><div id="taxon-list" class="taxon-list"></div><div id="taxon-more"></div><p class="helper">${p.boundary_available?'Search radius: '+Math.round(p.radius_m)+' m, measured from the park center to its farthest boundary.':'This park has no mapped boundary, so a search radius cannot be calculated.'} ${p.coverage_complete?'':'This circle extends beyond the 12 km observation dataset; coverage is partial.'}</p><p class="credit">iNaturalist community observations · all quality grades<br>Some public locations are obscured. Sightings are historical.</p>`;
+  $('sidebar').innerHTML=`<div id="side-back"></div><div class="eyebrow">LOCAL PARK</div><h2>${escapeHtml(p.name)}</h2><p class="muted">Mount Pleasant area, Michigan</p><hr class="divider"><h3>Wildlife around this park</h3><p class="muted">${fmt(groups.length)} taxa · ${fmt(p.observations.length)} observations</p><input id="taxon-search" class="search" type="search" placeholder="Search animals, plants, fungi…" aria-label="Search taxa"><div id="taxon-list" class="taxon-list"></div><div id="taxon-more"></div><p class="helper">${p.boundary_available?'Search radius: '+Math.round(p.radius_m)+' m, measured from the park center to its farthest boundary.':'This park has no mapped boundary, so a search radius cannot be calculated.'} ${p.observations_truncated?'Showing up to the newest '+data.observations_per_park+' of '+fmt(p.available_observations)+' available observations.':''}</p><p class="credit">iNaturalist community observations · all quality grades<br>Some public locations are obscured. Sightings are historical.</p>`;
   $('side-back').appendChild(button('← All parks',allParks));
   $('taxon-search').addEventListener('input',()=>{visibleCount=60;renderTaxa();});renderTaxa();$('sidebar').scrollTop=0;
 }
