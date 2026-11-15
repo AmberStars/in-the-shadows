@@ -1,30 +1,46 @@
 /* ==========================================================================
    Nature Explorer – Stylesheet
-   Layout: dark green header, split view with a map explorer (left)
+   Layout: dark header, split view with a map explorer (left)
    and a detail sidebar (right).
+   Theme: dark plum. All colours come from the tokens in section 1, so the
+   whole theme can be changed from that one block.
    ========================================================================== */
 
-   @import url('https://fonts.googleapis.com/css2?family=National+Park:wght@200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=National+Park:wght@200..800&display=swap');
 
-    
-    /* ...colour tokens... */
-    
 
 /* --------------------------------------------------------------------------
    1. Design Tokens
    -------------------------------------------------------------------------- */
 :root {
-  --forest: #202d23;  /* page / header background */
-  --paper:  #f6f7f1;  /* explorer panel background */
-  --ink:    #243c2d;  /* primary text */
-  --muted:  #606f61;  /* secondary text */
-  --card:   #2e3e2d;  /* cards and inputs in the sidebar */
-  --sage:   #e5eadd;  /* light accent surface */
-  --line:   #43523e;  /* dividers */
-  --green:  #326545;  /* accent; also the first colour in the JS `palette` array */
-  --blue:   #46778b;  /* unused in CSS; matches a hex value in the JS `palette` array */
-  --ochre:  #956124;  /* unused in CSS; matches a hex value in the JS `palette` array */
+  /* Backgrounds */
+  --bg:             #2a202d;  /* page, header and sidebar */
+  --bg-panel:       #342a37;  /* explorer panel and map loading background */
 
+  /* Surfaces (cards, inputs, overlays, buttons) */
+  --surface:        #3a2d3e;  /* cards, inputs, map overlays, tooltips */
+  --surface-hover:  #4a3b4f;  /* hover state for cards and records */
+  --surface-button: #45354a;  /* back / photo navigation buttons */
+  --surface-accent: #5a4563;  /* region pill and light back button */
+
+  /* Borders */
+  --border:         #4d3e52;  /* dividers */
+  --border-strong:  #6b5873;  /* inputs, hover borders, scrollbar */
+
+  /* Text */
+  --text:           #f4eef6;  /* primary text */
+  --text-muted:     #cdbfd3;  /* secondary text */
+  --text-subtle:    #a899ae;  /* captions, source line, subtitle */
+
+  /* Accents */
+  --accent:         #573265;  /* markers, record numbers, status dots (fallback) */
+  --accent-soft:    #c9a6d9;  /* eyebrow labels, selected-record border */
+  --focus:          #d9bfe6;  /* keyboard focus ring */
+
+  /* Effects */
+  --shadow:         rgba(0, 0, 0, .35);
+
+  /* Typography */
   --font: "National Park", Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
@@ -39,8 +55,8 @@
 body {
   margin: 0;
   font-family: var(--font);
-  color: var(--ink);
-  background: var(--forest);
+  color: var(--text);
+  background: var(--bg);
 }
 
 p {
@@ -62,7 +78,7 @@ button:focus-visible,
 a:focus-visible,
 input:focus-visible,
 select:focus-visible {
-  outline: 3px solid #a6c2df;
+  outline: 3px solid var(--focus);
   outline-offset: 3px;
 }
 
@@ -82,13 +98,13 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: white;
+  color: var(--text);
   font-size: 24px;
 }
 
 header .brand {
   font-size: 11px;
-  color: #ccd8c8;
+  color: var(--text-muted);
   letter-spacing: .04em;
   width: calc(29.7% - 24px); /* lines up with the sidebar column */
 }
@@ -109,7 +125,7 @@ main {
    5. Explorer Panel (left)
    -------------------------------------------------------------------------- */
 .explorer {
-  background: var(--paper);
+  background: var(--bg-panel);
   min-width: 0;
   padding: 22px 20px 10px;
   display: flex;
@@ -125,7 +141,7 @@ main {
 .eyebrow {
   font-size: 11px;
   font-weight: 600;
-  color: #526d50;
+  color: var(--accent-soft);
   margin-bottom: 10px;
 }
 
@@ -147,12 +163,12 @@ h1 {
 #subtitle {
   margin: 6px 0 0;
   font-size: 14px;
-  color: var(--muted);
+  color: var(--text-subtle);
 }
 
 /* Region pill shown beside the title */
 .region {
-  background: var(--sage);
+  background: var(--surface-accent);
   border-radius: 20px;
   padding: 9px 16px;
   font-size: 12px;
@@ -166,13 +182,13 @@ h1 {
   position: relative;
   border-radius: 18px;
   overflow: hidden;
-  background: #e8ecdf;
+  background: var(--bg-panel);
 }
 
 #map {
   position: absolute;
   inset: 0;
-  background: #e8ecdf;
+  background: var(--bg-panel);
   z-index: 0;
 }
 
@@ -184,9 +200,9 @@ h1 {
   bottom: 30px;
   max-width: calc(100% - 90px);
   padding: 13px 16px;
-  background: #fff;
+  background: var(--surface);
   border-radius: 10px;
-  box-shadow: 0 2px 15px #2033230a;
+  box-shadow: 0 2px 15px var(--shadow);
   font-size: 12px;
   pointer-events: none; /* let clicks pass through to the map */
 }
@@ -195,7 +211,7 @@ h1 {
   display: block;
   margin-top: 7px;
   font-size: 10px;
-  color: #65745e;
+  color: var(--text-subtle);
 }
 
 /* Filter control overlay (top-left of map) */
@@ -207,12 +223,12 @@ h1 {
 }
 
 .map-filter button {
-  background: white;
-  color: #294a33;
+  background: var(--surface);
+  color: var(--text);
   border-radius: 8px;
   padding: 10px 12px;
   font-size: 12px;
-  box-shadow: 0 1px 5px #0001;
+  box-shadow: 0 1px 5px var(--shadow);
   max-width: 260px;
   text-align: left;
 }
@@ -220,7 +236,7 @@ h1 {
 /* Data source / attribution line under the map */
 .source-line {
   font-size: 10px;
-  color: #65745e;
+  color: var(--text-subtle);
   padding: 8px 12px 0;
   line-height: 1.5;
 }
@@ -230,15 +246,15 @@ h1 {
    6. Sidebar (right)
    -------------------------------------------------------------------------- */
 aside {
-  color: white;
+  color: var(--text);
   padding: 24px;
   overflow: auto;
   min-width: 0;
-  scrollbar-color: #526d50 var(--forest);
+  scrollbar-color: var(--border-strong) var(--bg);
 }
 
+/* Colour is inherited from the shared .eyebrow rule */
 aside .eyebrow {
-  color: #bcd2ac;
   font-size: 10px;
   margin: 22px 0 8px;
 }
@@ -257,7 +273,7 @@ aside h3 {
 }
 
 .muted {
-  color: #c1cfb9;
+  color: var(--text-muted);
   font-size: 12px;
   line-height: 1.55;
   margin: 6px 0 0;
@@ -265,20 +281,20 @@ aside h3 {
 
 .divider {
   border: 0;
-  border-top: 1px solid var(--line);
+  border-top: 1px solid var(--border);
   margin: 20px 0;
 }
 
 .empty {
   padding: 24px 0;
-  color: #c1cfb9;
+  color: var(--text-muted);
   font-size: 14px;
   line-height: 1.7;
 }
 
 .helper {
   font-size: 12px;
-  color: #cfd9c6;
+  color: var(--text-muted);
   line-height: 1.6;
   margin-top: 24px;
 }
@@ -286,7 +302,7 @@ aside h3 {
 .credit {
   font-size: 10px;
   line-height: 1.5;
-  color: #bfd0b4;
+  color: var(--text-muted);
   margin-top: 8px;
   overflow-wrap: anywhere;
 }
@@ -298,12 +314,12 @@ aside h3 {
 select,
 input {
   font: inherit;
-  border: 1px solid #526d50;
+  border: 1px solid var(--border-strong);
   border-radius: 7px;
   padding: 10px 12px;
   width: 100%;
-  background: #2e3e2d;
-  color: white;
+  background: var(--surface);
+  color: var(--text);
 }
 
 select {
@@ -318,8 +334,8 @@ select {
 /* "Back" navigation buttons */
 .back {
   display: inline-block;
-  background: #334832;
-  color: #e6efdf;
+  background: var(--surface-button);
+  color: var(--text);
   border-radius: 8px;
   padding: 9px 12px;
   font-size: 12px;
@@ -327,8 +343,8 @@ select {
 }
 
 .back.light {
-  background: var(--sage);
-  color: #294a33;
+  background: var(--surface-accent);
+  color: var(--text);
   margin-bottom: 10px;
 }
 
@@ -351,20 +367,20 @@ select {
 
 .welcome p {
   font-size: 22px;
-  color: #e1ead8;
+  color: var(--text);
   margin: 0 0 28px;
 }
 
 .welcome label {
   font-size: 12px;
-  color: #c1cfb9;
+  color: var(--text-muted);
   margin-bottom: 8px;
 }
 
 .welcome small {
   font-size: 12px;
   line-height: 1.6;
-  color: #c1cfb9;
+  color: var(--text-muted);
   margin-top: 20px;
 }
 
@@ -381,10 +397,10 @@ select {
 .taxon-card {
   display: flex;
   text-align: left;
-  background: var(--card);
+  background: var(--surface);
   border: 1px solid transparent;
   border-radius: 10px;
-  color: white;
+  color: var(--text);
   padding: 8px;
   gap: 14px;
   width: 100%;
@@ -395,8 +411,8 @@ select {
 /* Shared hover state for cards and observation records */
 .taxon-card:hover,
 .record:hover {
-  background: #394d36;
-  border-color: #526d50;
+  background: var(--surface-hover);
+  border-color: var(--border-strong);
 }
 
 .taxon-card img,
@@ -409,11 +425,11 @@ select {
 }
 
 .thumb-placeholder {
-  background: #394b36;
+  background: var(--surface-button);
   display: grid;
   place-items: center;
   font-size: 11px;
-  color: #ccd8c8;
+  color: var(--text-muted);
   text-align: center;
 }
 
@@ -428,25 +444,25 @@ select {
   font-size: 11px;
   display: block;
   font-style: normal; /* scientific name shown upright */
-  color: #cfd9c6;
+  color: var(--text-muted);
   line-height: 1.5;
   margin: 5px 0 12px;
 }
 
 .taxon-card .count {
-  color: #e0ebd7;
+  color: var(--text);
   font-size: 12px;
   display: block;
 }
 
-/* Small colored status dot */
+/* Small colored status dot (colour is normally set inline by the JS palette) */
 .dot {
   display: inline-block;
   width: 8px;
   height: 8px;
   border-radius: 50%;
   margin-right: 6px;
-  background: var(--green);
+  background: var(--accent);
 }
 
 
@@ -459,25 +475,25 @@ select {
   object-fit: contain;
   border-radius: 10px;
   display: block;
-  background: #2e3e2d;
+  background: var(--surface);
 }
 
 .hero-placeholder {
   display: grid;
   place-items: center;
   font-size: 14px;
-  color: #c1cfb9;
+  color: var(--text-muted);
 }
 
 .breadcrumb {
   font-size: 12px;
-  color: #c1cfb9;
+  color: var(--text-muted);
   margin: 20px 0 8px;
 }
 
 .scientific {
   font-size: 13px;
-  color: #cfd9c6;
+  color: var(--text-muted);
   margin: 0 0 16px;
 }
 
@@ -491,7 +507,7 @@ select {
 }
 
 .metadata dt {
-  color: #c1cfb9;
+  color: var(--text-muted);
 }
 
 .metadata dd {
@@ -507,8 +523,8 @@ select {
 }
 
 .photo-nav button {
-  background: #334832;
-  color: white;
+  background: var(--surface-button);
+  color: var(--text);
   border-radius: 6px;
   padding: 6px 12px;
   font-size: 12px;
@@ -516,7 +532,7 @@ select {
 
 .photo-nav span {
   font-size: 11px;
-  color: #c1cfb9;
+  color: var(--text-muted);
   align-self: center;
 }
 
@@ -536,8 +552,8 @@ select {
   align-items: center;
   text-align: left;
   width: 100%;
-  color: white;
-  background: var(--card);
+  color: var(--text);
+  background: var(--surface);
   border: 1px solid transparent;
   border-radius: 10px;
   padding: 10px;
@@ -545,7 +561,7 @@ select {
 }
 
 .record.selected {
-  border-color: #bfd0b4;
+  border-color: var(--accent-soft);
 }
 
 .record strong {
@@ -557,7 +573,7 @@ select {
 .record small {
   display: block;
   font-size: 10px;
-  color: #c1cfb9;
+  color: var(--text-muted);
   margin-top: 6px;
 }
 
@@ -568,7 +584,7 @@ select {
   object-fit: cover;
 }
 
-/* Numbered badge for each record */
+/* Numbered badge for each record (colour normally set inline by the JS palette) */
 .record .record-num {
   width: 28px;
   height: 28px;
@@ -576,14 +592,14 @@ select {
   display: grid;
   place-items: center;
   flex-shrink: 0;
-  background: var(--green);
+  background: var(--accent);
 }
 
 .observation-link {
   display: block;
   margin: 14px 0;
   font-size: 12px;
-  color: #e0ebd7;
+  color: var(--text);
 }
 
 
@@ -610,12 +626,12 @@ select {
 .park-marker .pin {
   height: 30px;
   width: 30px;
-  border: 2px solid #326545;
+  border: 2px solid var(--accent);
   border-radius: 50%;
   display: grid;
   place-items: center;
-  background: white;
-  box-shadow: 0 2px 4px #0001;
+  background: var(--surface);
+  box-shadow: 0 2px 4px var(--shadow);
 }
 
 .park-marker .pin::after {
@@ -623,28 +639,28 @@ select {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #326545;
+  background: var(--accent);
 }
 
-/* Numbered observation marker */
+/* Numbered observation marker (background is set inline by the JS palette) */
 .obs-marker {
-  border: 2px solid white;
+  border: 2px solid var(--text);
   border-radius: 50%;
-  color: white;
+  color: var(--text);
   font-size: 11px;
   font-weight: 600;
   text-align: center;
   line-height: 26px;
-  box-shadow: 0 1px 4px #0002;
+  box-shadow: 0 1px 4px var(--shadow);
 }
 
 /* Park name tooltip */
 .leaflet-tooltip.park-label {
-  background: #fff;
+  background: var(--surface);
   border: 0;
-  box-shadow: 0 2px 6px #0001;
+  box-shadow: 0 2px 6px var(--shadow);
   font: 600 11px var(--font);
-  color: #29442f;
+  color: var(--text);
   border-radius: 6px;
   padding: 7px 10px;
 }
