@@ -1,1 +1,788 @@
-:root{--forest:#202d23;--paper:#f6f7f1;--ink:#243c2d;--muted:#606f61;--card:#2e3e2d;--sage:#e5eadd;--line:#43523e;--green:#326545;--blue:#46778b;--ochre:#956124}*{box-sizing:border-box}body{margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:var(--forest)}header{height:82px;padding:0 34px;display:flex;align-items:center;justify-content:space-between;color:white;font-size:24px}header .brand{font-size:11px;color:#ccd8c8;letter-spacing:.04em;width:calc(29.7% - 24px)}main{display:grid;grid-template-columns:minmax(0,900fr) minmax(320px,380fr);height:calc(100dvh - 82px);min-height:630px}.explorer{background:var(--paper);min-width:0;padding:22px 20px 10px;display:flex;flex-direction:column}.heading{padding:0 12px 21px;min-height:119px}.eyebrow{font-size:11px;font-weight:600;color:#526d50;margin-bottom:10px}.title-row{display:flex;align-items:center;justify-content:space-between;gap:16px}h1{font-size:30px;line-height:1.35;margin:0;font-weight:600;letter-spacing:-.025em}p{line-height:1.45}#subtitle{margin:6px 0 0;font-size:14px;color:var(--muted)}.region{background:var(--sage);border-radius:20px;padding:9px 16px;font-size:12px;white-space:nowrap}.map-wrap{flex:1;min-height:400px;position:relative;border-radius:18px;overflow:hidden;background:#e8ecdf}#map{position:absolute;inset:0;background:#e8ecdf;z-index:0}.legend{position:absolute;z-index:500;left:18px;bottom:30px;max-width:calc(100% - 90px);padding:13px 16px;background:#fff;border-radius:10px;box-shadow:0 2px 15px #2033230a;font-size:12px;pointer-events:none}.legend small{display:block;margin-top:7px;font-size:10px;color:#65745e}.source-line{font-size:10px;color:#65745e;padding:8px 12px 0;line-height:1.5}aside{color:white;padding:24px;overflow:auto;min-width:0;scrollbar-color:#526d50 var(--forest)}.welcome{min-height:100%;display:flex;flex-direction:column;justify-content:center;padding:12px}.welcome p{font-size:22px;color:#e1ead8;margin:0 0 28px}.welcome label{font-size:12px;color:#c1cfb9;margin-bottom:8px}.welcome small{font-size:12px;line-height:1.6;color:#c1cfb9;margin-top:20px}select,input{font:inherit;border:1px solid #526d50;border-radius:7px;padding:10px 12px;width:100%;background:#2e3e2d;color:white}select{cursor:pointer}button{font:inherit;cursor:pointer;border:0}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #a6c2df;outline-offset:3px}.back{display:inline-block;background:#334832;color:#e6efdf;border-radius:8px;padding:9px 12px;font-size:12px;line-height:1.4}.back.light{background:var(--sage);color:#294a33;margin-bottom:10px}button[hidden],[hidden]{display:none!important}aside .eyebrow{color:#bcd2ac;font-size:10px;margin:22px 0 8px}aside h2{font-size:28px;font-weight:600;line-height:1.3;margin:8px 0}aside h3{font-size:20px;line-height:1.4;margin:0 0 6px}.muted{color:#c1cfb9;font-size:12px;line-height:1.55;margin:6px 0 0}.divider{border:0;border-top:1px solid var(--line);margin:20px 0}.taxon-list{display:grid;gap:14px;margin-top:18px}.taxon-card{display:flex;text-align:left;background:var(--card);border:1px solid transparent;border-radius:10px;color:white;padding:8px;gap:14px;width:100%;min-height:112px;align-items:center}.taxon-card:hover,.record:hover{background:#394d36;border-color:#526d50}.taxon-card img,.thumb-placeholder{width:98px;height:96px;object-fit:cover;flex-shrink:0;border-radius:7px}.thumb-placeholder{background:#394b36;display:grid;place-items:center;font-size:11px;color:#ccd8c8;text-align:center}.taxon-card strong{font-size:15px;line-height:1.4;font-weight:600;display:block}.taxon-card em{font-size:11px;display:block;font-style:normal;color:#cfd9c6;line-height:1.5;margin:5px 0 12px}.taxon-card .count{color:#e0ebd7;font-size:12px;display:block}.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;background:var(--green)}.search{margin-top:16px;font-size:13px}.helper{font-size:12px;color:#cfd9c6;line-height:1.6;margin-top:24px}.credit{font-size:10px;line-height:1.5;color:#bfd0b4;margin-top:8px;overflow-wrap:anywhere}.hero{width:100%;aspect-ratio:332/210;object-fit:contain;border-radius:10px;display:block;background:#2e3e2d}.hero-placeholder{display:grid;place-items:center;font-size:14px;color:#c1cfb9}.breadcrumb{font-size:12px;color:#c1cfb9;margin:20px 0 8px}.scientific{font-size:13px;color:#cfd9c6;margin:0 0 16px}.metadata{display:grid;grid-template-columns:110px 1fr;font-size:12px;gap:12px;margin:22px 0}.metadata dt{color:#c1cfb9}.metadata dd{margin:0}.records{display:grid;gap:10px;margin-top:12px}.record{display:flex;gap:12px;align-items:center;text-align:left;width:100%;color:white;background:var(--card);border:1px solid transparent;border-radius:10px;padding:10px;font-size:12px}.record.selected{border-color:#bfd0b4}.record strong{font-size:12px;font-weight:500;display:block}.record small{display:block;font-size:10px;color:#c1cfb9;margin-top:6px}.record img{height:48px;width:48px;border-radius:6px;object-fit:cover}.record .record-num{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;flex-shrink:0;background:var(--green)}a{color:inherit}.observation-link{display:block;margin:14px 0;font-size:12px;color:#e0ebd7}.map-filter{position:absolute;left:18px;top:18px;z-index:500}.map-filter button{background:white;color:#294a33;border-radius:8px;padding:10px 12px;font-size:12px;box-shadow:0 1px 5px #0001;max-width:260px;text-align:left}.park-marker{background:none;border:0}.park-marker .pin{height:30px;width:30px;border:2px solid #326545;border-radius:50%;display:grid;place-items:center;background:white;box-shadow:0 2px 4px #0001}.park-marker .pin::after{content:"";width:8px;height:8px;border-radius:50%;background:#326545}.obs-marker{border:2px solid white;border-radius:50%;color:white;font-size:11px;font-weight:600;text-align:center;line-height:26px;box-shadow:0 1px 4px #0002}.leaflet-tooltip.park-label{background:#fff;border:0;box-shadow:0 2px 6px #0001;font:600 11px Inter,-apple-system,sans-serif;color:#29442f;border-radius:6px;padding:7px 10px}.leaflet-tooltip.park-label:before{display:none}.leaflet-control-attribution{font-size:9px!important}.leaflet-container{font-family:inherit}.empty{padding:24px 0;color:#c1cfb9;font-size:14px;line-height:1.7}.more{width:100%;margin-top:15px}.photo-nav{display:flex;justify-content:space-between;gap:10px;margin:8px 0}.photo-nav button{background:#334832;color:white;border-radius:6px;padding:6px 12px;font-size:12px}.photo-nav span{font-size:11px;color:#c1cfb9;align-self:center}@media(min-width:1600px){main{grid-template-columns:minmax(0,1fr) 420px}header .brand{width:362px}}@media(max-width:1000px){header{font-size:20px}.region{display:none}.taxon-card{gap:10px}.taxon-card img,.thumb-placeholder{width:76px;height:84px}aside{padding:20px}h1{font-size:26px}}@media(max-width:720px){header{height:64px;padding:0 20px;font-size:17px}header .brand{display:none}main{height:auto;min-height:0;grid-template-columns:1fr}.explorer{height:65dvh;min-height:480px;padding:18px 12px 10px}.heading{padding:0 8px 18px;min-height:110px}.map-wrap{min-height:280px}h1{font-size:23px}#subtitle{font-size:12px}.legend{left:10px;bottom:26px;max-width:calc(100% - 50px);padding:10px;font-size:10px}.legend small{font-size:9px}.welcome{padding:16px 0}.welcome p{font-size:20px;margin-bottom:20px}aside{overflow:visible;min-height:260px;padding:24px}.taxon-card img,.thumb-placeholder{width:98px;height:96px}.source-line{font-size:9px}.hero{max-height:340px}.map-filter{left:10px;top:10px}}
+/* ==========================================================================
+   Nature Explorer – Stylesheet
+   Layout: dark green header, split view with a map explorer (left)
+   and a detail sidebar (right).
+   ========================================================================== */
+
+   @import url('https://fonts.googleapis.com/css2?family=National+Park:wght@200..800&display=swap');
+
+    
+    /* ...colour tokens... */
+    
+
+/* --------------------------------------------------------------------------
+   1. Design Tokens
+   -------------------------------------------------------------------------- */
+:root {
+  --forest: #202d23;  /* page / header background */
+  --paper:  #f6f7f1;  /* explorer panel background */
+  --ink:    #243c2d;  /* primary text */
+  --muted:  #606f61;  /* secondary text */
+  --card:   #2e3e2d;  /* cards and inputs in the sidebar */
+  --sage:   #e5eadd;  /* light accent surface */
+  --line:   #43523e;  /* dividers */
+  --green:  #326545;  /* accent; also the first colour in the JS `palette` array */
+  --blue:   #46778b;  /* unused in CSS; matches a hex value in the JS `palette` array */
+  --ochre:  #956124;  /* unused in CSS; matches a hex value in the JS `palette` array */
+
+  --font: "National Park", Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+
+/* --------------------------------------------------------------------------
+   2. Base / Reset
+   -------------------------------------------------------------------------- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  color: var(--ink);
+  background: var(--forest);
+}
+
+p {
+  line-height: 1.45;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  border: 0;
+}
+
+/* Keyboard focus ring for all interactive elements */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid #a6c2df;
+  outline-offset: 3px;
+}
+
+/* Ensure the hidden attribute always wins over display rules */
+button[hidden],
+[hidden] {
+  display: none !important;
+}
+
+
+/* --------------------------------------------------------------------------
+   3. Header
+   -------------------------------------------------------------------------- */
+header {
+  height: 82px;
+  padding: 0 34px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  font-size: 24px;
+}
+
+header .brand {
+  font-size: 11px;
+  color: #ccd8c8;
+  letter-spacing: .04em;
+  width: calc(29.7% - 24px); /* lines up with the sidebar column */
+}
+
+
+/* --------------------------------------------------------------------------
+   4. Main Layout (explorer + sidebar)
+   -------------------------------------------------------------------------- */
+main {
+  display: grid;
+  grid-template-columns: minmax(0, 900fr) minmax(320px, 380fr);
+  height: calc(100dvh - 82px); /* viewport minus header */
+  min-height: 630px;
+}
+
+
+/* --------------------------------------------------------------------------
+   5. Explorer Panel (left)
+   -------------------------------------------------------------------------- */
+.explorer {
+  background: var(--paper);
+  min-width: 0;
+  padding: 22px 20px 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Heading area --- */
+.heading {
+  padding: 0 12px 21px;
+  min-height: 119px;
+}
+
+.eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  color: #526d50;
+  margin-bottom: 10px;
+}
+
+.title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+h1 {
+  font-size: 30px;
+  line-height: 1.35;
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: -.025em;
+}
+
+#subtitle {
+  margin: 6px 0 0;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* Region pill shown beside the title */
+.region {
+  background: var(--sage);
+  border-radius: 20px;
+  padding: 9px 16px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+/* --- Map container --- */
+.map-wrap {
+  flex: 1;
+  min-height: 400px;
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #e8ecdf;
+}
+
+#map {
+  position: absolute;
+  inset: 0;
+  background: #e8ecdf;
+  z-index: 0;
+}
+
+/* Legend overlay (bottom-left of map) */
+.legend {
+  position: absolute;
+  z-index: 500;
+  left: 18px;
+  bottom: 30px;
+  max-width: calc(100% - 90px);
+  padding: 13px 16px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 15px #2033230a;
+  font-size: 12px;
+  pointer-events: none; /* let clicks pass through to the map */
+}
+
+.legend small {
+  display: block;
+  margin-top: 7px;
+  font-size: 10px;
+  color: #65745e;
+}
+
+/* Filter control overlay (top-left of map) */
+.map-filter {
+  position: absolute;
+  left: 18px;
+  top: 18px;
+  z-index: 500;
+}
+
+.map-filter button {
+  background: white;
+  color: #294a33;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 12px;
+  box-shadow: 0 1px 5px #0001;
+  max-width: 260px;
+  text-align: left;
+}
+
+/* Data source / attribution line under the map */
+.source-line {
+  font-size: 10px;
+  color: #65745e;
+  padding: 8px 12px 0;
+  line-height: 1.5;
+}
+
+
+/* --------------------------------------------------------------------------
+   6. Sidebar (right)
+   -------------------------------------------------------------------------- */
+aside {
+  color: white;
+  padding: 24px;
+  overflow: auto;
+  min-width: 0;
+  scrollbar-color: #526d50 var(--forest);
+}
+
+aside .eyebrow {
+  color: #bcd2ac;
+  font-size: 10px;
+  margin: 22px 0 8px;
+}
+
+aside h2 {
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.3;
+  margin: 8px 0;
+}
+
+aside h3 {
+  font-size: 20px;
+  line-height: 1.4;
+  margin: 0 0 6px;
+}
+
+.muted {
+  color: #c1cfb9;
+  font-size: 12px;
+  line-height: 1.55;
+  margin: 6px 0 0;
+}
+
+.divider {
+  border: 0;
+  border-top: 1px solid var(--line);
+  margin: 20px 0;
+}
+
+.empty {
+  padding: 24px 0;
+  color: #c1cfb9;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.helper {
+  font-size: 12px;
+  color: #cfd9c6;
+  line-height: 1.6;
+  margin-top: 24px;
+}
+
+.credit {
+  font-size: 10px;
+  line-height: 1.5;
+  color: #bfd0b4;
+  margin-top: 8px;
+  overflow-wrap: anywhere;
+}
+
+
+/* --------------------------------------------------------------------------
+   7. Form Controls
+   -------------------------------------------------------------------------- */
+select,
+input {
+  font: inherit;
+  border: 1px solid #526d50;
+  border-radius: 7px;
+  padding: 10px 12px;
+  width: 100%;
+  background: #2e3e2d;
+  color: white;
+}
+
+select {
+  cursor: pointer;
+}
+
+.search {
+  margin-top: 16px;
+  font-size: 13px;
+}
+
+/* "Back" navigation buttons */
+.back {
+  display: inline-block;
+  background: #334832;
+  color: #e6efdf;
+  border-radius: 8px;
+  padding: 9px 12px;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.back.light {
+  background: var(--sage);
+  color: #294a33;
+  margin-bottom: 10px;
+}
+
+.more {
+  width: 100%;
+  margin-top: 15px;
+}
+
+
+/* --------------------------------------------------------------------------
+   8. Welcome State
+   -------------------------------------------------------------------------- */
+.welcome {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 12px;
+}
+
+.welcome p {
+  font-size: 22px;
+  color: #e1ead8;
+  margin: 0 0 28px;
+}
+
+.welcome label {
+  font-size: 12px;
+  color: #c1cfb9;
+  margin-bottom: 8px;
+}
+
+.welcome small {
+  font-size: 12px;
+  line-height: 1.6;
+  color: #c1cfb9;
+  margin-top: 20px;
+}
+
+
+/* --------------------------------------------------------------------------
+   9. Taxon List (species / group cards)
+   -------------------------------------------------------------------------- */
+.taxon-list {
+  display: grid;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.taxon-card {
+  display: flex;
+  text-align: left;
+  background: var(--card);
+  border: 1px solid transparent;
+  border-radius: 10px;
+  color: white;
+  padding: 8px;
+  gap: 14px;
+  width: 100%;
+  min-height: 112px;
+  align-items: center;
+}
+
+/* Shared hover state for cards and observation records */
+.taxon-card:hover,
+.record:hover {
+  background: #394d36;
+  border-color: #526d50;
+}
+
+.taxon-card img,
+.thumb-placeholder {
+  width: 98px;
+  height: 96px;
+  object-fit: cover;
+  flex-shrink: 0;
+  border-radius: 7px;
+}
+
+.thumb-placeholder {
+  background: #394b36;
+  display: grid;
+  place-items: center;
+  font-size: 11px;
+  color: #ccd8c8;
+  text-align: center;
+}
+
+.taxon-card strong {
+  font-size: 15px;
+  line-height: 1.4;
+  font-weight: 600;
+  display: block;
+}
+
+.taxon-card em {
+  font-size: 11px;
+  display: block;
+  font-style: normal; /* scientific name shown upright */
+  color: #cfd9c6;
+  line-height: 1.5;
+  margin: 5px 0 12px;
+}
+
+.taxon-card .count {
+  color: #e0ebd7;
+  font-size: 12px;
+  display: block;
+}
+
+/* Small colored status dot */
+.dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 6px;
+  background: var(--green);
+}
+
+
+/* --------------------------------------------------------------------------
+   10. Detail View (selected taxon)
+   -------------------------------------------------------------------------- */
+.hero {
+  width: 100%;
+  aspect-ratio: 332 / 210;
+  object-fit: contain;
+  border-radius: 10px;
+  display: block;
+  background: #2e3e2d;
+}
+
+.hero-placeholder {
+  display: grid;
+  place-items: center;
+  font-size: 14px;
+  color: #c1cfb9;
+}
+
+.breadcrumb {
+  font-size: 12px;
+  color: #c1cfb9;
+  margin: 20px 0 8px;
+}
+
+.scientific {
+  font-size: 13px;
+  color: #cfd9c6;
+  margin: 0 0 16px;
+}
+
+/* Key/value metadata list (<dl>) */
+.metadata {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  font-size: 12px;
+  gap: 12px;
+  margin: 22px 0;
+}
+
+.metadata dt {
+  color: #c1cfb9;
+}
+
+.metadata dd {
+  margin: 0;
+}
+
+/* Photo gallery navigation */
+.photo-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 8px 0;
+}
+
+.photo-nav button {
+  background: #334832;
+  color: white;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 12px;
+}
+
+.photo-nav span {
+  font-size: 11px;
+  color: #c1cfb9;
+  align-self: center;
+}
+
+
+/* --------------------------------------------------------------------------
+   11. Observation Records
+   -------------------------------------------------------------------------- */
+.records {
+  display: grid;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.record {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  text-align: left;
+  width: 100%;
+  color: white;
+  background: var(--card);
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 12px;
+}
+
+.record.selected {
+  border-color: #bfd0b4;
+}
+
+.record strong {
+  font-size: 12px;
+  font-weight: 500;
+  display: block;
+}
+
+.record small {
+  display: block;
+  font-size: 10px;
+  color: #c1cfb9;
+  margin-top: 6px;
+}
+
+.record img {
+  height: 48px;
+  width: 48px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+/* Numbered badge for each record */
+.record .record-num {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  background: var(--green);
+}
+
+.observation-link {
+  display: block;
+  margin: 14px 0;
+  font-size: 12px;
+  color: #e0ebd7;
+}
+
+
+/* --------------------------------------------------------------------------
+   12. Leaflet Map Overrides
+   -------------------------------------------------------------------------- */
+.leaflet-container {
+  font-family: inherit;
+}
+
+.leaflet-control-attribution {
+  font-size: 9px !important;
+}
+
+/* Park marker: the JS builds this as a divIcon containing an inline SVG <img>,
+   so only the wrapper needs resetting here */
+.park-marker {
+  background: none;
+  border: 0;
+}
+
+/* NOTE: .pin is not referenced by the current HTML/JS (the marker uses an SVG
+   image instead). Kept in case the CSS-drawn marker is reinstated. */
+.park-marker .pin {
+  height: 30px;
+  width: 30px;
+  border: 2px solid #326545;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: white;
+  box-shadow: 0 2px 4px #0001;
+}
+
+.park-marker .pin::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #326545;
+}
+
+/* Numbered observation marker */
+.obs-marker {
+  border: 2px solid white;
+  border-radius: 50%;
+  color: white;
+  font-size: 11px;
+  font-weight: 600;
+  text-align: center;
+  line-height: 26px;
+  box-shadow: 0 1px 4px #0002;
+}
+
+/* Park name tooltip */
+.leaflet-tooltip.park-label {
+  background: #fff;
+  border: 0;
+  box-shadow: 0 2px 6px #0001;
+  font: 600 11px var(--font);
+  color: #29442f;
+  border-radius: 6px;
+  padding: 7px 10px;
+}
+
+.leaflet-tooltip.park-label:before {
+  display: none; /* remove tooltip arrow */
+}
+
+
+/* ==========================================================================
+   13. Responsive Breakpoints
+   ========================================================================== */
+
+/* --- Large screens: fixed-width sidebar --- */
+@media (min-width: 1600px) {
+  main {
+    grid-template-columns: minmax(0, 1fr) 420px;
+  }
+
+  header .brand {
+    width: 362px;
+  }
+}
+
+/* --- Tablet and below --- */
+@media (max-width: 1000px) {
+  header {
+    font-size: 20px;
+  }
+
+  .region {
+    display: none;
+  }
+
+  .taxon-card {
+    gap: 10px;
+  }
+
+  .taxon-card img,
+  .thumb-placeholder {
+    width: 76px;
+    height: 84px;
+  }
+
+  aside {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 26px;
+  }
+}
+
+/* --- Mobile: stacked layout (map on top, sidebar below) --- */
+@media (max-width: 720px) {
+  header {
+    height: 64px;
+    padding: 0 20px;
+    font-size: 17px;
+  }
+
+  header .brand {
+    display: none;
+  }
+
+  main {
+    height: auto;
+    min-height: 0;
+    grid-template-columns: 1fr;
+  }
+
+  .explorer {
+    height: 65dvh;
+    min-height: 480px;
+    padding: 18px 12px 10px;
+  }
+
+  .heading {
+    padding: 0 8px 18px;
+    min-height: 110px;
+  }
+
+  .map-wrap {
+    min-height: 280px;
+  }
+
+  h1 {
+    font-size: 23px;
+  }
+
+  #subtitle {
+    font-size: 12px;
+  }
+
+  .legend {
+    left: 10px;
+    bottom: 26px;
+    max-width: calc(100% - 50px);
+    padding: 10px;
+    font-size: 10px;
+  }
+
+  .legend small {
+    font-size: 9px;
+  }
+
+  .welcome {
+    padding: 16px 0;
+  }
+
+  .welcome p {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  aside {
+    overflow: visible; /* page scrolls instead of the sidebar */
+    min-height: 260px;
+    padding: 24px;
+  }
+
+  /* Restore larger thumbnails (overrides the 1000px rule) */
+  .taxon-card img,
+  .thumb-placeholder {
+    width: 98px;
+    height: 96px;
+  }
+
+  .source-line {
+    font-size: 9px;
+  }
+
+  .hero {
+    max-height: 340px;
+  }
+
+  .map-filter {
+    left: 10px;
+    top: 10px;
+  }
+}
